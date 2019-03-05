@@ -1,0 +1,17 @@
+{% extends 'hwApp/index.html' %}
+
+{% block content %}
+<h4 class="jumbotron">Your Items</h4>
+<!--items from model by foreign key-->
+<!--only items whose user is logged in-->
+<table class="table">
+    {% for item in item_fk %}
+    <tr>
+        <td>{{item.item_name}}</td>
+        <td>{{item.item_fk}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<!--link back to all_items-->
+Click <a href="{% url 'all_items' %}">here</a> to view all items
+{% endblock %}
